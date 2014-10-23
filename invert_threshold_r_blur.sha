@@ -1,0 +1,42 @@
+//Cg
+// First part of lens flare postprocess filter from this article http://www.john-chapman.net/content.php?id=18
+// Panda3d interpretation by 09th (rupanda3d@gmail.com)
+void vshader(
+    float4 vtx_position : POSITION,
+    float2 vtx_texcoord0 : TEXCOORD0,
+    out float4 l_position : POSITION,
+    out float2 l_texcoord0 : TEXCOORD0,
+    uniform float4 texpad_tex1,
+    uniform float4x4 mat_modelproj)
+{
+    l_position=mul(mat_modelproj, vtx_position);
+    // invert texture coord
+    l_texcoord0 = - (vtx_position.xz * texpad_tex1.xy*2);
+}
+ 
+void fshader(float2 l_texcoord0 : TEXCOORD0,
+             out float4 o_color : COLOR,
+             uniform float4 texpad_tex1,
+             uniform sampler2D k_tex1 : TEXUNIT0,
+             uniform float3 k_threshold)
+{
+
+    int NSAMPLES = 3;
+    float BlurStart = 0.5;
+    float BlurWidth = -0.1;
+    float BRIGHTNESS = 1.0;
+   
+    // threshold + radial blur
+    float4 c = 0;
+    float3 tmp = 0;
+    for(int i=0; i <NSAMPLES; i++) {
+        float scale = BlurStart + BlurWidth*(i/(float) (NSAMPLES-1));
+        tmp = tex2D(k_tex1, l_texcoord0 * scale + texpad_tex1.xy ).xyz;
+        tmp = saturate((((tmp - k_threshold)/(float3(1.0) - k_threshold))) * BRIGHTNESS);
+        c += float4(tmp, 1.0);
+    }
+    c /= NSAMPLES;
+   
+    o_color = c;
+
+} 

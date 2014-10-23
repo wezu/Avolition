@@ -1,0 +1,117 @@
+//Cg
+/* Generated shader for render state 0A0C587C:
+  AlphaTestAttrib:greater,0
+  ColorAttrib:vertex
+  LightAttrib:on
+    render/plight
+  ShaderAttrib
+  TexMatrixAttrib: shadow(T:(identity))
+  TextureAttrib:on shadow: default:tiles Tex2:tiles_ns
+  TexGenAttrib: shadow(world_position)
+  TransparencyAttrib:alpha
+*/
+void vshader(
+	 in float4 vtx_texcoord0 : TEXCOORD0,
+	 out float4 l_texcoord0 : TEXCOORD0,
+	 in float4 vtx_texcoord1 : TEXCOORD1,
+	 out float4 l_texcoord1 : TEXCOORD1,
+	 //in float4 vtx_texcoord2 : TEXCOORD2,
+	 out float4 l_texcoord2 : TEXCOORD2,
+	 in float4 vtx_color : COLOR,
+	 out float4 l_color : COLOR,
+	 uniform float4x4 trans_model_to_world,
+	 out float4 l_world_position : TEXCOORD3,
+	 uniform float4x4 trans_model_to_view,
+	 out float4 l_eye_position : TEXCOORD4,
+	 uniform float4x4 tpose_view_to_model,
+	 out float4 l_eye_normal : TEXCOORD5,
+	 in float4 vtx_normal : TEXCOORD3,
+	 in float4 vtx_tangent2 : TEXCOORD4,
+	 in float4 vtx_binormal2 : TEXCOORD5,
+	 out float4 l_tangent : TEXCOORD6,
+	 out float4 l_binormal : TEXCOORD7,
+	 float4 vtx_position : POSITION,
+	 out float4 l_position : POSITION,
+	 uniform float4x4 mat_modelproj
+) {
+	 l_position = mul(mat_modelproj, vtx_position);
+	 l_world_position = mul(trans_model_to_world, vtx_position);
+	 l_eye_position = mul(trans_model_to_view, vtx_position);
+	 l_eye_normal.xyz = mul((float3x3)tpose_view_to_model, vtx_normal.xyz);
+	 l_eye_normal.w = 0;
+	 l_texcoord1 = vtx_texcoord1;
+	 //l_texcoord2 = vtx_texcoord2;
+	 l_color = vtx_color;
+	 l_tangent.xyz = mul((float3x3)tpose_view_to_model, vtx_tangent2.xyz);
+	 l_tangent.w = 0;
+	 l_binormal.xyz = mul((float3x3)tpose_view_to_model, -vtx_binormal2.xyz);
+	 l_binormal.w = 0;
+}
+
+void fshader(
+	 //in float4 l_world_position : TEXCOORD3,
+	 in float4 l_eye_position : TEXCOORD4,
+	 in float4 l_eye_normal : TEXCOORD5,
+	 uniform sampler2D tex_0,
+	 //uniform float4x4 texmat_0,
+	 uniform sampler2D tex_1,
+	 in float4 l_texcoord1 : TEXCOORD1,
+	 uniform sampler2D tex_2,
+	 //in float4 l_texcoord2 : TEXCOORD2,
+	 in float3 l_tangent : TEXCOORD6,
+	 in float3 l_binormal : TEXCOORD7,
+	 uniform float4x4 plight_plight0_rel_view,
+	 uniform float4 row1_view_to_model,
+	 out float4 o_color : COLOR0,
+	 in float4 l_color : COLOR,
+	 uniform float4 attr_colorscale
+) {
+	 float4 result;
+	 //float4 l_texcoord0 = l_world_position;
+	 //l_texcoord0 = mul(texmat_0, l_texcoord0);
+	 //l_texcoord0.xyz /= l_texcoord0.w;
+	 // Fetch all textures.
+	 //float4 tex0 = tex2D(tex_0, l_texcoord0.xy);
+	 float4 tex1 = tex2D(tex_1, l_texcoord1.xy);
+	 float4 tex2 = tex2D(tex_2, l_texcoord1.xy);
+	 // Translate tangent-space normal in map to view-space.
+	 float3 tsnormal = ((float3)tex2 * 2) - 1;
+	 l_eye_normal.xyz *= tsnormal.z;
+	 l_eye_normal.xyz += l_tangent * tsnormal.x;
+	 l_eye_normal.xyz += l_binormal * tsnormal.y;
+	 // Correct the surface normal for interpolation effects
+	 l_eye_normal.xyz = normalize(l_eye_normal.xyz);
+	 // Begin view-space light calculations
+	 float ldist,lattenv,langle;
+	 float4 lcolor,lspec,lvec,lpoint,latten,ldir,leye,lhalf;
+	 float4 tot_diffuse = float4(0,0,0,0);
+	 float4 tot_specular = float4(0,0,0,0);
+	 float shininess = 50; // no shininess specified, using default
+	 // Point Light 0
+	 lcolor = plight_plight0_rel_view[0];
+	 lspec  = plight_plight0_rel_view[1];
+	 lpoint = plight_plight0_rel_view[2];
+	 latten = plight_plight0_rel_view[3];
+	 lvec   = lpoint - l_eye_position;
+	 ldist = length(float3(lvec));
+	 lvec /= ldist;
+	 lattenv = 1/(latten.x + latten.y*ldist + latten.z*ldist*ldist);
+	 lcolor *= lattenv * saturate(dot(l_eye_normal.xyz, lvec.xyz));
+	 tot_diffuse += lcolor;
+	 lhalf = normalize(lvec - float4(0,1,0,0));
+	 lspec *= lattenv;
+	 lspec *= pow(saturate(dot(l_eye_normal.xyz, lhalf.xyz)), shininess);
+	 tot_specular += lspec;
+	 // Begin view-space light summation
+	 result = float4(0,0,0,0);
+	 result += tot_diffuse;// + l_color;
+	 result = saturate(result);
+	 // End view-space light calculations
+	 //result.a = l_color.a;
+	 //result.rgb = lerp(result, tex0 * float4(0, 0, 0, 1), tex0.r).rgb;
+     //result.rgb *= tex0.rgb; 
+	 result.rgba *= tex1.rgba;
+	 tot_specular *= tex2.a;
+	 result.rgb = result.rgb + tot_specular.rgb;
+	 o_color = result * 1.000001;
+}

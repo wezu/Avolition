@@ -1,0 +1,19 @@
+#auto generated config file
+#use config.txt to hand-edit custom options
+win-size 800 600
+music-volume 34
+sound-volume 100
+bloom 1
+multisamples 2
+fullscreen 0
+safemode 0
+key_action1 mouse1|enter
+key_back s|arrow_down
+key_action2 mouse3|space
+key_zoomout wheel_down|f
+key_cam_right e|page_down
+key_right d|arrow_right
+key_zoomin wheel_up|r
+key_left a|arrow_left
+key_forward w|arrow_up
+key_cam_left q|delete
