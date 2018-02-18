@@ -71,7 +71,7 @@ class VisibilityPolygon():
         return math.atan2(b[1]-a[1], b[0]-a[0]) * 180 / math.pi           
    
     def insert (self, index, heap, position, segments, destination, map):
-        print "insert"
+        print("insert")
         intersect = self.intersectLines(segments[index][0], segments[index][1], position, destination)
         if len(intersect) == 0:
             return
@@ -155,7 +155,7 @@ class VisibilityPolygon():
         return a3
    
     def remove (self, index, heap, position, segments, destination, map):
-        print "remove"
+        print("remove")
         map[heap[index]] = -1
         if (index == len(heap) - 1):
             heap.pop()
@@ -201,7 +201,7 @@ class VisibilityPolygon():
                
     def child (self,index):
         return 2*index+1   
-   
+
     def convertToSegments (self, polygons):
         #print "convertToSegments"
         segments = []
@@ -219,8 +219,7 @@ if __name__ == '__main__':
     from PIL import Image, ImageDraw
     VP=VisibilityPolygon()
     polygons = []
-   
-   
+
     #polygons.append([[-1,-1],[501,-1],[501,501],[-1,501]])
     #polygons.append([[240,240],[260,240],[260,260],[240,260]])
     #polygons.append([[240,260],[260,260],[260,280],[240,280]])
@@ -241,7 +240,7 @@ if __name__ == '__main__':
     segments = VP.convertToSegments(polygons)
     position = [3, 3]
     visibility = VP.compute(position, segments)
-    print visibility
+    print(visibility)
     # Debug PIL Image out
     image = Image.new("RGBA", (500,500), (0,0,0,1))
     draw = ImageDraw.Draw(image)
