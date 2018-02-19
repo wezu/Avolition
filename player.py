@@ -2260,7 +2260,7 @@ class PC3(DirectObject):
         #print self.pierceChance
         self.bleedSlowRatio=int(self.common['pc_stat2'])    
         self.critChance=25+int(self.common['pc_stat3']/2)   #x 100%       
-        print self.critChance
+        print(self.critChance)
         self.baseDamage=(50+int(100-self.common['pc_stat3']))/100.0       
         self.speed=.8
         self.isRunning=False
