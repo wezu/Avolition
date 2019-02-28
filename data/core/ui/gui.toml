@@ -1,0 +1,1199 @@
+[[frame]]
+name = "main_menu"
+size = [ 512, 256,]
+pos = [ -256, 0,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "NEW GAME"
+cmd = "game.gui.show_hide('chargen', 'main_menu')"
+width = 256
+pos = [ 128, 90,]
+
+[[frame.button]]
+txt = "LOAD"
+cmd = "game.do_nill()"
+width = 256
+pos = [ 128, 122,]
+
+[[frame.button]]
+txt = "OPTIONS"
+cmd = "game.do_nill()"
+width = 256
+pos = [ 128, 154,]
+
+[[frame.button]]
+txt = "CREDITS"
+cmd = "game.gui.show_hide('credits','main_menu')"
+width = 256
+pos = [ 128, 186,]
+
+[[frame.button]]
+txt = "EXIT"
+cmd = "game.exit_game()"
+width = 256
+pos = [ 128, 218,]
+
+[[frame.img]]
+texture = "ui/logo.png"
+pos = [ 0, 0,]
+
+
+[[frame]]
+name = "chargen"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "ROGUE"
+cmd = "game.select_class('rogue')"
+width = 256
+pos = [ 128, 90,]
+
+[[frame.button]]
+txt = "WITCH"
+cmd = "game.select_class('witch')"
+width = 256
+pos = [ 128, 122,]
+
+[[frame.button]]
+txt = "GLADIATOR"
+cmd = "game.select_class('gladiator')"
+width = 256
+pos = [ 128, 154,]
+
+[[frame.button]]
+txt = "DRUID"
+cmd = "game.select_class('druid')"
+width = 256
+pos = [ 128, 186,]
+
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('main_menu', 'chargen')"
+width = 256
+pos = [ 128, 232,]
+
+[[frame.text]]
+txt = "SELECT CHARACTER:"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "chargen_rogue"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('chargen', 'chargen_rogue')"
+width = 128
+pos = [ 128, 284,]
+
+[[frame.button]]
+txt = "PLAY!"
+cmd = "game.gui.show_hide('chargen', 'chargen_rogue')"
+width = 128
+pos = [ 256, 284,]
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('prowess-finesse', value)"
+width = 256
+pos = [ 128, 90,]
+name = "prowess-finesse"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('cripple-bleed', value)"
+width = 256
+pos = [ 128, 122,]
+name = "cripple-bleed"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('pierce-barbs', value)"
+width = 256
+pos = [ 128, 154,]
+name = "pierce-barbs"
+
+[[frame.text]]
+txt = "CHOOSE YOUR SKILLS:"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "Prowess                                  Finesse"
+pos = [ -8, 90,]
+big_font = 0
+
+[[frame.text]]
+txt = "Cripple                                  Bleed"
+pos = [ -8, 122,]
+big_font = 0
+
+[[frame.text]]
+txt = "Pierce                                   Barbs"
+pos = [ -8, 154,]
+big_font = 0
+
+[[frame.text]]
+txt = "TEMPLATE!"
+pos = [ 106, 186,]
+mono_font = 1
+center = 0
+name = "rogue_stats"
+
+[[frame.img]]
+texture = "ui/icon/bow_damage.png"
+pos = [ 112, 90,]
+
+[[frame.img]]
+texture = "ui/icon/finese.png"
+pos = [ 368, 90,]
+
+[[frame.img]]
+texture = "ui/icon/cripple.png"
+pos = [ 112, 122,]
+
+[[frame.img]]
+texture = "ui/icon/bleed.png"
+pos = [ 368, 122,]
+
+[[frame.img]]
+texture = "ui/icon/pierce.png"
+pos = [ 112, 154,]
+
+[[frame.img]]
+texture = "ui/icon/barbs.png"
+pos = [ 368, 154,]
+
+
+[[frame]]
+name = "chargen_witch"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('chargen', 'chargen_witch')"
+width = 128
+pos = [ 128, 284,]
+
+[[frame.button]]
+txt = "PLAY!"
+cmd = "game.gui.show_hide('chargen', 'chargen_witch')"
+width = 128
+pos = [ 256, 284,]
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('static-rapid', value)"
+width = 256
+pos = [ 128, 90,]
+name = "static-rapid"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('thunder-lightning', value)"
+width = 256
+pos = [ 128, 122,]
+name = "thunder-lightning"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('damage-blast', value)"
+width = 256
+pos = [ 128, 154,]
+name = "damage-blast"
+
+[[frame.text]]
+txt = "CHOOSE YOUR SKILLS:"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "Static Charge                                 Rapid Charge"
+pos = [ -8, 90,]
+big_font = 0
+
+[[frame.text]]
+txt = "Thunder                                 Lightning"
+pos = [ -32, 122,]
+big_font = 0
+
+[[frame.text]]
+txt = "Damage                                 Blast"
+pos = [ -48, 154,]
+big_font = 0
+
+[[frame.text]]
+txt = "TEMPLATE!"
+pos = [ 128, 186,]
+mono_font = 1
+center = 0
+name = "witch_stats"
+
+[[frame.img]]
+texture = "ui/icon/volt.png"
+pos = [ 112, 90,]
+
+[[frame.img]]
+texture = "ui/icon/amp.png"
+pos = [ 368, 90,]
+
+[[frame.img]]
+texture = "ui/icon/thunder.png"
+pos = [ 112, 122,]
+
+[[frame.img]]
+texture = "ui/icon/lightning.png"
+pos = [ 368, 122,]
+
+[[frame.img]]
+texture = "ui/icon/damage.png"
+pos = [ 112, 154,]
+
+[[frame.img]]
+texture = "ui/icon/blast.png"
+pos = [ 368, 154,]
+
+
+[[frame]]
+name = "chargen_gladiator"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('chargen', 'chargen_gladiator')"
+width = 128
+pos = [ 128, 284,]
+
+[[frame.button]]
+txt = "PLAY!"
+cmd = "game.gui.show_hide('chargen', 'chargen_gladiator')"
+width = 128
+pos = [ 256, 284,]
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('critical-damage', value)"
+width = 256
+pos = [ 128, 90,]
+name = "critical-damage"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('speed-block', value)"
+width = 256
+pos = [ 128, 122,]
+name = "speed-block"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('regen-armor', value)"
+width = 256
+pos = [ 128, 154,]
+name = "regen-armor"
+
+[[frame.text]]
+txt = "CHOOSE YOUR SKILLS:"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "Critical Hit                                 Damage"
+pos = [ -24, 90,]
+big_font = 0
+
+[[frame.text]]
+txt = "Speed                                  Block"
+pos = [ -9, 122,]
+big_font = 0
+
+[[frame.text]]
+txt = "Regeneration                                  Armour"
+pos = [ -48, 154,]
+big_font = 0
+
+[[frame.text]]
+txt = "TEMPLATE!"
+pos = [ 106, 186,]
+mono_font = 1
+center = 0
+name = "gladiator_stats"
+
+[[frame.img]]
+texture = "ui/icon/critical.png"
+pos = [ 112, 90,]
+
+[[frame.img]]
+texture = "ui/icon/power.png"
+pos = [ 368, 90,]
+
+[[frame.img]]
+texture = "ui/icon/move.png"
+pos = [ 112, 122,]
+
+[[frame.img]]
+texture = "ui/icon/shield2.png"
+pos = [ 368, 122,]
+
+[[frame.img]]
+texture = "ui/icon/heart.png"
+pos = [ 112, 154,]
+
+[[frame.img]]
+texture = "ui/icon/armor.png"
+pos = [ 368, 154,]
+
+
+[[frame]]
+name = "chargen_druid"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('chargen', 'chargen_druid')"
+width = 128
+pos = [ 128, 284,]
+
+[[frame.button]]
+txt = "PLAY!"
+cmd = "game.gui.show_hide('chargen', 'chargen_druid')"
+width = 128
+pos = [ 256, 284,]
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('warp-phase', value)"
+width = 256
+pos = [ 128, 90,]
+name = "warp-phase"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('volcanic-fire', value)"
+width = 256
+pos = [ 128, 122,]
+name = "volcanic-fire"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.set_skill('magma-burning', value)"
+width = 256
+pos = [ 128, 154,]
+name = "magma-burning"
+
+[[frame.text]]
+txt = "CHOOSE YOUR SKILLS:"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "Warp Field                                 Phaseshift"
+pos = [ 0, 90,]
+big_font = 0
+
+[[frame.text]]
+txt = "Volcanic Activity                                 Heart of Fire"
+pos = [ -36, 122,]
+big_font = 0
+
+[[frame.text]]
+txt = "Magma Flow                                 Burning Death"
+pos = [ -60, 154,]
+big_font = 0
+
+[[frame.text]]
+txt = "TEMPLATE!"
+pos = [ 106, 186,]
+mono_font = 1
+center = 0
+name = "druid_stats"
+
+[[frame.img]]
+texture = "ui/icon/thorns.png"
+pos = [ 112, 90,]
+
+[[frame.img]]
+texture = "ui/icon/warp.png"
+pos = [ 368, 90,]
+
+[[frame.img]]
+texture = "ui/icon/vulcanic.png"
+pos = [ 112, 122,]
+
+[[frame.img]]
+texture = "ui/icon/heart_o_fire.png"
+pos = [ 368, 122,]
+
+[[frame.img]]
+texture = "ui/icon/magma_flow.png"
+pos = [ 112, 154,]
+
+[[frame.img]]
+texture = "ui/icon/hand_o_fate.png"
+pos = [ 368, 154,]
+
+
+[[frame]]
+name = "credits"
+size = [ 512, 256,]
+pos = [ -256, -32,]
+parent = "top"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('main_menu', 'credits')"
+width = 256
+pos = [ 128, 520,]
+
+[[frame.text]]
+txt = "CREDITS:"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "MUSIC:\nMatthew Pablo\n\nPROGRAMMING:\nwezu\n\nDESIGN:\nwezu\n\nMODELS & TEXTURES:\nwezu\n\nSOUNDS:\nwezu\n\nICONS:\n based on Lorc RPG icons\n\nCHARACTER MODELS:\nbased on MakeHumman models\n\nPOWERED BY:\nPanda3D\n\nSPECIAL THANKS TO:\nrdb, Moguri,\nThaumaturge, TheCheapestPixels,\ntobspr, flavio, enn0x, drwrose\nand all the other great p3d people"
+pos = [ 0, 60,]
+mono_font = 1
+
+
+[[frame]]
+name = "options"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 0
+[[frame.button]]
+txt = "VIDEO"
+cmd = "game.gui.show_hide('video', 'options')"
+width = 288
+pos = [ 16, 96,]
+
+[[frame.button]]
+txt = "AUDIO"
+cmd = "game.gui.show_hide('audio', 'options')"
+width = 288
+pos = [ 16, 128,]
+
+[[frame.button]]
+txt = "CONTROLS"
+cmd = "game.gui.show_hide('controls', 'options')"
+width = 288
+pos = [ 16, 160,]
+
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('main_menu', 'options')"
+width = 256
+pos = [ 32, 192,]
+
+[[frame.text]]
+txt = "options"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "video"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 0
+[[frame.button]]
+txt = "RESOLUTION"
+cmd = "game.gui.show_hide('resolution', 'video')"
+width = 288
+pos = [ 16, 96,]
+
+[[frame.button]]
+txt = "QUALITY"
+cmd = "game.gui.show_hide('video_quality', 'video')"
+width = 288
+pos = [ 16, 128,]
+
+[[frame.button]]
+txt = "ADVANCED..."
+cmd = "game.gui.show_hide('advanced_video', 'video')"
+width = 288
+pos = [ 16, 160,]
+
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('options', 'video')"
+width = 256
+pos = [ 32, 192,]
+
+[[frame.text]]
+txt = "video options"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "audio"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 0
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('options', 'audio')"
+width = 256
+pos = [ 32, 190,]
+
+[[frame.text]]
+txt = "audio options"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "SOUND VOLUME:"
+pos = [ 0, 84,]
+big_font = 0
+
+[[frame.text]]
+txt = "MUSIC VOLUME:"
+pos = [ 0, 128,]
+big_font = 0
+
+[[frame.slider]]
+value = 1.0
+cmd = "game.audio.set_sound_volume(value)"
+width = 288
+pos = [ 16, 100,]
+name = "sound-volume"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.audio.set_music_volume(value)"
+width = 288
+pos = [ 16, 148,]
+name = "music-volume"
+
+
+[[frame]]
+name = "controls"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 448
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('options', 'controls')"
+width = 224
+pos = [ 48, 78,]
+name = "controls_cancel"
+
+[[frame.button]]
+txt = " LEFT: "
+cmd = "game.show_bind_key('left')"
+width = 256
+pos = [ 30, 96,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " RIGHT: "
+cmd = "game.show_bind_key('right')"
+width = 256
+pos = [ 30, 128,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " UP: "
+cmd = "game.show_bind_key('up')"
+width = 256
+pos = [ 30, 160,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " DOWN: "
+cmd = "game.show_bind_key('down')"
+width = 256
+pos = [ 30, 192,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " FORWARD: "
+cmd = "game.show_bind_key('forward')"
+width = 256
+pos = [ 30, 224,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " BACK: "
+cmd = "game.show_bind_key('back')"
+width = 256
+pos = [ 30, 256,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " ACTION: "
+cmd = "game.show_bind_key('action')"
+width = 256
+pos = [ 30, 288,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " CAMERA: "
+cmd = "game.show_bind_key('camera')"
+width = 256
+pos = [ 30, 320,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " ZOOM IN: "
+cmd = "game.show_bind_key('zoom_in')"
+width = 256
+pos = [ 30, 352,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " ZOOM OUT: "
+cmd = "game.show_bind_key('zoom_out')"
+width = 256
+pos = [ 30, 384,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.button]]
+txt = " CHANGE STAGE: "
+cmd = "game.show_bind_key('stage')"
+width = 256
+pos = [ 30, 416,]
+parent = "controls_canvas"
+center = 0
+
+[[frame.text]]
+txt = "controls options"
+pos = [ 0, 23,]
+
+[[frame.text]]
+txt = "CAMERA ROTATION SPEED:"
+pos = [ 0, -4,]
+big_font = 0
+parent = "controls_canvas"
+
+[[frame.text]]
+txt = "CAMERA ZOOM SPEED:"
+pos = [ 0, 34,]
+big_font = 0
+parent = "controls_canvas"
+
+[[frame.text]]
+txt = "KEY BINDINGS:"
+pos = [ 0, 80,]
+big_font = 0
+parent = "controls_canvas"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.cam.set_rotation_speed(value)"
+width = 224
+pos = [ 48, 8,]
+parent = "controls_canvas"
+name = "camera-speed"
+
+[[frame.slider]]
+value = 0.5
+cmd = "game.cam.set_zoom_speed(value)"
+width = 224
+pos = [ 48, 46,]
+parent = "controls_canvas"
+name = "zoom-speed"
+
+
+[[frame]]
+name = "video_quality"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 0
+[[frame.button]]
+txt = "BEST"
+name = "button_preset_full"
+cmd = "game.options.set_preset('full')"
+width = 288
+pos = [ 16, 96,]
+
+[[frame.button]]
+txt = "GOOD"
+name = "button_preset_medium"
+cmd = "game.options.set_preset('medium')"
+width = 288
+pos = [ 16, 128,]
+
+[[frame.button]]
+txt = "BAD"
+name = "button_preset_minimal"
+cmd = "game.options.set_preset('minimal')"
+width = 288
+pos = [ 16, 160,]
+
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('video', 'video_quality')"
+width = 256
+pos = [ 32, 192,]
+
+[[frame.text]]
+txt = "video quality"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "resolution"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 1280
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('video', 'resolution')"
+width = 224
+pos = [ 48, 78,]
+
+[[frame.button]]
+txt = "1920x1200 FULLSCREEN"
+cmd = "game.options.set_win_size(1920, 1200, 1)"
+width = 256
+pos = [ 32, 0,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1920x1200 WINDOW"
+cmd = "game.options.set_win_size(1920, 1200)"
+width = 256
+pos = [ 32, 32,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x900 FULLSCREEN"
+cmd = "game.options.set_win_size(1600, 900, 1)"
+width = 256
+pos = [ 32, 64,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x900 WINDOW"
+cmd = "game.options.set_win_size(1600, 900)"
+width = 256
+pos = [ 32, 96,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "2560x2048 FULLSCREEN"
+cmd = "game.options.set_win_size(2560, 2048, 1)"
+width = 256
+pos = [ 32, 128,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "2560x2048 WINDOW"
+cmd = "game.options.set_win_size(2560, 2048)"
+width = 256
+pos = [ 32, 160,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1800x1440 FULLSCREEN"
+cmd = "game.options.set_win_size(1800, 1440, 1)"
+width = 256
+pos = [ 32, 192,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1800x1440 WINDOW"
+cmd = "game.options.set_win_size(1800, 1440)"
+width = 256
+pos = [ 32, 224,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x768 FULLSCREEN"
+cmd = "game.options.set_win_size(1280, 768, 1)"
+width = 256
+pos = [ 32, 256,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x768 WINDOW"
+cmd = "game.options.set_win_size(1280, 768)"
+width = 256
+pos = [ 32, 288,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1360x768 FULLSCREEN"
+cmd = "game.options.set_win_size(1360, 768, 1)"
+width = 256
+pos = [ 32, 320,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1360x768 WINDOW"
+cmd = "game.options.set_win_size(1360, 768)"
+width = 256
+pos = [ 32, 352,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1680x1050 FULLSCREEN"
+cmd = "game.options.set_win_size(1680, 1050, 1)"
+width = 256
+pos = [ 32, 384,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1680x1050 WINDOW"
+cmd = "game.options.set_win_size(1680, 1050)"
+width = 256
+pos = [ 32, 416,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1920x1080 FULLSCREEN"
+cmd = "game.options.set_win_size(1920, 1080, 1)"
+width = 256
+pos = [ 32, 448,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1920x1080 WINDOW"
+cmd = "game.options.set_win_size(1920, 1080)"
+width = 256
+pos = [ 32, 480,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1440x900 FULLSCREEN"
+cmd = "game.options.set_win_size(1440, 900, 1)"
+width = 256
+pos = [ 32, 512,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1440x900 WINDOW"
+cmd = "game.options.set_win_size(1440, 900)"
+width = 256
+pos = [ 32, 544,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1024x600 FULLSCREEN"
+cmd = "game.options.set_win_size(1024, 600, 1)"
+width = 256
+pos = [ 32, 576,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1024x600 WINDOW"
+cmd = "game.options.set_win_size(1024, 600)"
+width = 256
+pos = [ 32, 608,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1366x768 FULLSCREEN"
+cmd = "game.options.set_win_size(1366, 768, 1)"
+width = 256
+pos = [ 32, 640,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1366x768 WINDOW"
+cmd = "game.options.set_win_size(1366, 768)"
+width = 256
+pos = [ 32, 672,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1440x1080 FULLSCREEN"
+cmd = "game.options.set_win_size(1440, 1080, 1)"
+width = 256
+pos = [ 32, 704,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1440x1080 WINDOW"
+cmd = "game.options.set_win_size(1440, 1080)"
+width = 256
+pos = [ 32, 736,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1024x768 FULLSCREEN"
+cmd = "game.options.set_win_size(1024, 768, 1)"
+width = 256
+pos = [ 32, 768,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1024x768 WINDOW"
+cmd = "game.options.set_win_size(1024, 768)"
+width = 256
+pos = [ 32, 800,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x960 FULLSCREEN"
+cmd = "game.options.set_win_size(1280, 960, 1)"
+width = 256
+pos = [ 32, 832,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x960 WINDOW"
+cmd = "game.options.set_win_size(1280, 960)"
+width = 256
+pos = [ 32, 864,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x1280 FULLSCREEN"
+cmd = "game.options.set_win_size(1600, 1280, 1)"
+width = 256
+pos = [ 32, 896,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x1280 WINDOW"
+cmd = "game.options.set_win_size(1600, 1280)"
+width = 256
+pos = [ 32, 928,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x800 FULLSCREEN"
+cmd = "game.options.set_win_size(1280, 800, 1)"
+width = 256
+pos = [ 32, 960,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x800 WINDOW"
+cmd = "game.options.set_win_size(1280, 800)"
+width = 256
+pos = [ 32, 992,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "2560x1600 FULLSCREEN"
+cmd = "game.options.set_win_size(2560, 1600, 1)"
+width = 256
+pos = [ 32, 1024,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "2560x1600 WINDOW"
+cmd = "game.options.set_win_size(2560, 1600)"
+width = 256
+pos = [ 32, 1056,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x1200 FULLSCREEN"
+cmd = "game.options.set_win_size(1600, 1200, 1)"
+width = 256
+pos = [ 32, 1088,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1600x1200 WINDOW"
+cmd = "game.options.set_win_size(1600, 1200)"
+width = 256
+pos = [ 32, 1120,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x720 FULLSCREEN"
+cmd = "game.options.set_win_size(1280, 720, 1)"
+width = 256
+pos = [ 32, 1152,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x720 WINDOW"
+cmd = "game.options.set_win_size(1280, 720)"
+width = 256
+pos = [ 32, 1184,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x1024 FULLSCREEN"
+cmd = "game.options.set_win_size(1280, 1024, 1)"
+width = 256
+pos = [ 32, 1216,]
+parent = "resolution_canvas"
+
+[[frame.button]]
+txt = "1280x1024 WINDOW"
+cmd = "game.options.set_win_size(1280, 1024)"
+width = 256
+pos = [ 32, 1248,]
+parent = "resolution_canvas"
+
+[[frame.text]]
+txt = "resolution"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "advanced_video"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 64
+scroll = 320
+[[frame.button]]
+txt = "BACK"
+cmd = "game.gui.show_hide('video', 'advanced_video')"
+width = 224
+pos = [ 48, 78,]
+
+[[frame.button]]
+txt = "Ambient Occlusion"
+cmd = "game.options.set_ao()"
+width = 256
+pos = [ 30, 0,]
+parent = "advanced_video_canvas"
+name = "ao_button"
+
+[[frame.button]]
+txt = "Depth of Field/Fog"
+cmd = "game.options.set_dof()"
+width = 256
+pos = [ 30, 32,]
+parent = "advanced_video_canvas"
+name = "dof_button"
+
+[[frame.button]]
+txt = "Bloom/Glow"
+cmd = "game.options.set_bloom()"
+width = 256
+pos = [ 30, 64,]
+parent = "advanced_video_canvas"
+name = "bloom_button"
+
+[[frame.button]]
+txt = "Dithering"
+cmd = "game.options.set_dither()"
+width = 256
+pos = [ 30, 96,]
+parent = "advanced_video_canvas"
+name = "dith_button"
+
+[[frame.button]]
+txt = "Reflections"
+cmd = "game.options.set_ssr()"
+width = 256
+pos = [ 30, 128,]
+parent = "advanced_video_canvas"
+name = "ssr_button"
+
+[[frame.button]]
+txt = "Color tuning"
+cmd = "game.options.set_lut()"
+width = 256
+pos = [ 30, 160,]
+parent = "advanced_video_canvas"
+name = "lut_button"
+
+[[frame.button]]
+txt = "Detailed Shadows"
+cmd = "game.options.set_shadows(1024)"
+width = 256
+pos = [ 30, 192,]
+parent = "advanced_video_canvas"
+name = "hi_shadow_button"
+
+[[frame.button]]
+txt = "Basic Shadows"
+cmd = "game.options.set_shadows(512)"
+width = 256
+pos = [ 30, 224,]
+parent = "advanced_video_canvas"
+name = "lo_shadow_button"
+
+[[frame.button]]
+txt = "No Shadows"
+cmd = "game.options.set_shadows(0)"
+width = 256
+pos = [ 30, 256,]
+parent = "advanced_video_canvas"
+name = "no_shadow_button"
+
+[[frame.text]]
+txt = "advanced video"
+pos = [ 0, 23,]
+
+
+[[frame]]
+name = "keybind"
+size = [ 320, 256,]
+pos = [ -160, -280,]
+parent = "bottom"
+header = 0
+scroll = 0
+[[frame.button]]
+txt = "SAVE KEY"
+cmd = "game.bind_last_key()"
+width = 288
+pos = [ 16, 158,]
+
+[[frame.button]]
+txt = "BACK"
+cmd = "game.cancel_bind()"
+width = 256
+pos = [ 32, 190,]
+
+[[frame.text]]
+txt = "Press a mouse button, key or key combination (with alt, ctr or shift) to change the key for the selected action\nTHE CURRENT KEY IS:"
+pos = [ 0, 20,]
+big_font = 0
+wordwrap = 20
+
+[[frame.text]]
+txt = "{some_key???}"
+pos = [ 0, 104,]
+big_font = 1
+name = "txt_bind_input"
+wordwrap = 12
+
+
+[button]
+
+[icon]
+
+[slider]
+
+[input]
+
+[bar.steam_bar]
+width = 256
+color = [ 0, 0.4, 0.1, 0.6,]
+pos = [ 260, 0,]
+parent = "top_left"

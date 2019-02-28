@@ -1,0 +1,19 @@
+Warning, this mod contains pixels that look like naked people!
+If you are under 18 years old, are offended by such pixels, 
+your beliefs, faith, religion, government, spouse, or parents
+somehow prohibit you from viewing such pixels, then don't.
+
+The author of this mod will actively deny any knowledge of this mod,
+so don't bother arsking!     
+
+The original Avolition release was shipped with a nude-patch,
+so to keep the spirit of the original the 2.0 version also has one.
+
+To enable this mod edit the config.ini 
+Add the name of this folder (nude), after a comma and a space, at the end of the loadorder variable
+under the [datafiles] section. It should look something like this:
+
+[datafiles]
+loadorder = core, user, nude
+
+ 

@@ -1,0 +1,360 @@
+{"frame":
+    [
+        {"name":"main_menu",
+         "size":[512, 256],
+         "pos":[-256,0],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                        {"txt":"NEW GAME", "cmd":"game.gui.show_hide('chargen', 'main_menu')",   "width":256, "pos":[128,90]},
+                        {"txt":"LOAD", "cmd":"game.gui.show_hide('load','main_menu')",   "width":256, "pos":[128,122]},
+                        {"txt":"OPTIONS", "cmd":"game.gui.show_hide('options','main_menu')",   "width":256, "pos":[128,154]},
+                        {"txt":"CREDITS", "cmd":"game.gui.show_hide('credits','main_menu')",   "width":256, "pos":[128,186]},
+                        {"txt":"EXIT", "cmd":"game.exit_game()",   "width":256, "pos":[128,218]}
+                    ],
+         "img":[{"texture":"ui/logo.png", "pos":[0,0]}]
+        },
+        {"name":"save",
+         "size":[384, 512],
+         "pos":[-192,-32],
+         "parent":"top",
+         "header":64,
+         "scroll":1024,
+         "button":  [
+                        {"txt": "BACK", "cmd": "game.gui.show_hide('main_menu', 'save')", "width": 288, "pos": [48, 78]},
+                        {"txt": "-empty-", "cmd": "game.do_nill()", "width": 288, "pos": [48, 0], "parent": "save_canvas"}
+                    ],
+         "text":[{"txt":"SAVE GAME:", "pos":[0,23]}]
+        },
+        {"name":"load",
+         "size":[384, 512],
+         "pos":[-192,-32],
+         "parent":"top",
+         "header":64,
+         "scroll":1024,
+         "button":  [
+                        {"txt": "BACK", "cmd": "game.gui.show_hide('main_menu', 'load')", "width": 288, "pos": [48, 78]},
+                        {"txt": "-empty-", "cmd": "game.do_nill()", "width": 288, "pos": [48, 0], "parent": "load_canvas"}
+                    ],
+         "text":[{"txt":"LOAD GAME:", "pos":[0,23]}]
+        },
+        {"name":"chargen",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                        {"txt":"ROGUE", "cmd":"game.select_class('rogue')",   "width":256, "pos":[128,90]},
+                        {"txt":"WITCH", "cmd":"game.select_class('witch')",   "width":256, "pos":[128,122]},
+                        {"txt":"GLADIATOR", "cmd":"game.select_class('gladiator')",   "width":256, "pos":[128,154]},
+                        {"txt":"DRUID", "cmd":"game.select_class('druid')",   "width":256, "pos":[128,186]},
+                        {"txt":"BACK", "cmd":"game.gui.show_hide('main_menu', 'chargen')",   "width":256, "pos":[128,232]}
+                    ],
+         "text":[{"txt":"SELECT CHARACTER:", "pos":[0,23]}]
+        },
+        {"name":"chargen_rogue",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [{"txt":"BACK", "cmd":"game.chargen_back()",   "width":128, "pos":[128,284]},
+                     {"txt":"PLAY!", "cmd":"game.gui.show_hide('chargen', 'chargen_rogue')",   "width":128, "pos":[256,284]}],
+         "slider":  [{"value":0.5,"cmd":"game.set_skill('rogue','finesse','prowess', value)", "width":256, "pos":[128,90], "name":"chargen_skills1_rogue"},
+                     {"value":0.5,"cmd":"game.set_skill('rogue','bleed','cripple', value)", "width":256, "pos":[128,122], "name":"chargen_skills2_rogue"},
+                     {"value":0.5,"cmd":"game.set_skill('rogue','barbs','pierce', value)", "width":256, "pos":[128,154], "name":"chargen_skills3_rogue"}
+                    ],
+         "text":[{"txt":"CHOOSE YOUR SKILLS:", "pos":[0,23]},
+                 {"txt":"Prowess                                  Finesse", "pos":[-8,90], "big_font":0},
+                 {"txt":"Cripple                                  Bleed", "pos":[-8,122], "big_font":0},
+                 {"txt":"Pierce                                   Barbs", "pos":[-8,154], "big_font":0},
+                 {"txt":"TEMPLATE!", "pos":[106,186], "mono_font":1, "align":"left", "name":"rogue_stats"}
+                ],
+         "img":[{"texture":"ui/icon/bow_damage.png", "pos":[112,90]},
+                {"texture":"ui/icon/finese.png", "pos":[368,90]},
+                {"texture":"ui/icon/cripple.png", "pos":[112,122]},
+                {"texture":"ui/icon/bleed.png", "pos":[368,122]},
+                {"texture":"ui/icon/pierce.png", "pos":[112,154]},
+                {"texture":"ui/icon/barbs.png", "pos":[368,154]}
+               ]
+        },
+        {"name":"chargen_witch",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [{"txt":"BACK", "cmd":"game.chargen_back()",   "width":128, "pos":[128,284]},
+                     {"txt":"PLAY!", "cmd":"game.gui.show_hide('chargen', 'chargen_witch')",   "width":128, "pos":[256,284]}],
+         "slider":  [{"value":0.5,"cmd":"game.set_skill('witch','rapid','static', value)", "width":256, "pos":[128,90], "name":"chargen_skills1_witch"},
+                     {"value":0.5,"cmd":"game.set_skill('witch','lightning','thunder', value)", "width":256, "pos":[128,122], "name":"chargen_skills2_witch"},
+                     {"value":0.5,"cmd":"game.set_skill('witch','blast','damage', value)", "width":256, "pos":[128,154], "name":"chargen_skills3_witch"}
+                    ],
+         "text":[{"txt":"CHOOSE YOUR SKILLS:", "pos":[0,23]},
+                 {"txt":"STATIC CHARGE                                 OVER CHARGE", "pos":[-8,90], "big_font":0},
+                 {"txt":"THUNDER                                 LIGHTNING", "pos":[-32,122], "big_font":0},
+                 {"txt":"DAMAGE                                 BLAST", "pos":[-48,154], "big_font":0},
+                 {"txt":"TEMPLATE!", "pos":[96,186], "mono_font":1, "align":"left", "name":"witch_stats"}
+                ],
+         "img":[{"texture":"ui/icon/volt.png", "pos":[112,90]},
+                {"texture":"ui/icon/amp.png", "pos":[368,90]},
+                {"texture":"ui/icon/thunder.png", "pos":[112,122]},
+                {"texture":"ui/icon/lightning.png", "pos":[368,122]},
+                {"texture":"ui/icon/damage.png", "pos":[112,154]},
+                {"texture":"ui/icon/blast.png", "pos":[368,154]}
+               ]
+        },
+        {"name":"chargen_gladiator",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [{"txt":"BACK", "cmd":"game.chargen_back()",   "width":128, "pos":[128,284]},
+                     {"txt":"PLAY!", "cmd":"game.gui.show_hide('chargen', 'chargen_gladiator')",   "width":128, "pos":[256,284]}],
+         "slider":  [{"value":0.5,"cmd":"game.set_skill('gladiator','damage','critical', value)", "width":256, "pos":[128,90], "name":"chargen_skills1_gladiator"},
+                     {"value":0.5,"cmd":"game.set_skill('gladiator','block','speed', value)", "width":256, "pos":[128,122], "name":"chargen_skills2_gladiator"},
+                     {"value":0.5,"cmd":"game.set_skill('gladiator','armor','regen', value)", "width":256, "pos":[128,154], "name":"chargen_skills3_gladiator"}
+                    ],
+         "text":[{"txt":"CHOOSE YOUR SKILLS:", "pos":[0,23]},
+                 {"txt":"CRITICAL HIT                                 DAMAGE", "pos":[-24,90], "big_font":0},
+                 {"txt":"SPEED                                  BLOCK", "pos":[-9,122], "big_font":0},
+                 {"txt":"REGENERATION                                  ARMOUR", "pos":[-48,154], "big_font":0},
+                 {"txt":"TEMPLATE!", "pos":[106,186], "mono_font":1, "align":"left", "name":"gladiator_stats"}
+                ],
+         "img":[{"texture":"ui/icon/critical.png", "pos":[112,90]},
+                {"texture":"ui/icon/power.png", "pos":[368,90]},
+                {"texture":"ui/icon/move.png", "pos":[112,122]},
+                {"texture":"ui/icon/shield2.png", "pos":[368,122]},
+                {"texture":"ui/icon/heart.png", "pos":[112,154]},
+                {"texture":"ui/icon/armor.png", "pos":[368,154]}
+               ]
+        },
+        {"name":"chargen_druid",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [{"txt":"BACK", "cmd":"game.chargen_back()",   "width":128, "pos":[128,284]},
+                     {"txt":"PLAY!", "cmd":"game.gui.show_hide('chargen', 'chargen_druid')",   "width":128, "pos":[256,284]}],
+         "slider":  [{"value":0.5,"cmd":"game.set_skill('druid','phase','warp', value)", "width":256, "pos":[128,90], "name":"chargen_skills1_druid"},
+                     {"value":0.5,"cmd":"game.set_skill('druid','fire','volcanic', value)", "width":256, "pos":[128,122], "name":"chargen_skills2_druid"},
+                     {"value":0.5,"cmd":"game.set_skill('druid','burning','magma', value)", "width":256, "pos":[128,154], "name":"chargen_skills3_druid"}
+                    ],
+         "text":[{"txt":"CHOOSE YOUR SKILLS:", "pos":[0,23]},
+                 {"txt":"WARP FIELD                                 PHASESHIFT", "pos":[0,90], "big_font":0},
+                 {"txt":"VOLCANIC ACTIVITY                                 HEART OF FIRE", "pos":[-36,122], "big_font":0},
+                 {"txt":"MAGMA FLOW                                 BURNING DEATH", "pos":[-60,154], "big_font":0},
+                 {"txt":"TEMPLATE!", "pos":[106,186], "mono_font":1, "align":"left", "name":"druid_stats"}
+                ],
+         "img":[{"texture":"ui/icon/thorns.png", "pos":[112,90]},
+                {"texture":"ui/icon/warp.png", "pos":[368,90]},
+                {"texture":"ui/icon/vulcanic.png", "pos":[112,122]},
+                {"texture":"ui/icon/heart_o_fire.png", "pos":[368,122]},
+                {"texture":"ui/icon/magma_flow.png", "pos":[112,154]},
+                {"texture":"ui/icon/hand_o_fate.png", "pos":[368,154]}
+               ]
+        },
+        {"name":"credits",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button": [{"txt":"BACK", "cmd":"game.gui.show_hide('main_menu', 'credits')","width":256, "pos":[128,520]}],
+         "text":[{"txt":"CREDITS:", "pos":[0,23]},
+                 {"txt":"This game is FREE but life is not.\nPlease consider supporting the author via PayPal:\nwezu.dev@gmail.com\n\nMUSIC:\nMatthew Pablo\n\nPROGRAMMING:\nwezu\n\nDESIGN:\nwezu\n\nMODELS & ASSETS:\nwezu\nIcons based on Lorc RPG icons\nCharacters based on MakeHumman models\n\nPOWERED BY:\nPanda3D\nPython\nOpen-AL\nBullet Physics\n\nSPECIAL THANKS TO:\nrdb, Moguri, Schwarzbaer,\nThaumaturge, TheCheapestPixels, pmpp,\ntobspr, flavio, enn0x, drwrose\nand all the other great p3d people", "pos":[0,60],"mono_font":1}
+                ]
+        },
+
+        {"name":"options",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                        {"txt":"VIDEO", "cmd":"game.gui.show_hide('video', 'options')",   "width":256, "pos":[128,90]},
+                        {"txt":"AUDIO", "cmd":"game.gui.show_hide('audio', 'options')",   "width":256, "pos":[128,122]},
+                        {"txt":"CONTROLS", "cmd":"game.gui.show_hide('controls', 'options')",   "width":256, "pos":[128,154]},
+                        {"txt":"BACK", "cmd":"game.gui.show_hide('main_menu','options')",   "width":256, "pos":[128,186]}
+                    ],
+         "text":[{"txt":"OPTIONS:", "pos":[0,23]}]
+        },
+
+        {"name":"video",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                        {"txt":"RESOLUTION", "cmd":"game.gui.show_hide('resolution', 'video')","width":256, "pos":[128,90]},
+                        {"txt":"QUALITY", "cmd":"game.gui.show_hide('video_quality', 'video')",   "width":256, "pos":[128,122]},
+                        {"txt":"ADVANCED...", "cmd":"game.gui.show_hide('advanced_video', 'video')","width":256, "pos":[128,154]},
+                        {"txt":"BACK", "cmd":"game.gui.show_hide('options', 'video')",       "width":256, "pos":[128,192]}
+                    ],
+         "text":[{"txt":"VIDEO OPTIONS:", "pos":[0,23]}]
+        },
+
+        {"name":"audio",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":[{"txt":"BACK", "cmd":"game.gui.show_hide('options', 'audio')",   "width":256, "pos":[128,190]}],
+         "text":    [{"txt":"audio options", "pos":[0,23]},
+                     {"txt":"SOUND VOLUME:", "pos":[0,84], "big_font":0},
+                     {"txt":"MUSIC VOLUME:", "pos":[0,128],"big_font":0}
+                    ],
+         "slider":  [{"value":1.0,"cmd":"game.audio.set_sound_volume(value)", "width":288, "pos":[112,100], "name":"sound-volume"},
+                     {"value":0.5,"cmd":"game.audio.set_music_volume(value)", "width":288, "pos":[112,148], "name":"music-volume"}
+                    ]
+        },
+        {"name":"controls",
+         "size":[384, 384],
+         "pos":[-192,-32],
+         "parent":"top",
+         "header":64,
+         "scroll":384,
+         "button":  [
+                        {"txt":"BACK",            "cmd":"game.gui.show_hide('options', 'controls')","width": 320, "pos": [32, 78], "name":"controls_cancel"},
+                        {"txt": " LEFT: ",        "cmd": "game.options.show_bind_key('left')", "width": 320, "pos": [30, 120], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " RIGHT: ",       "cmd": "game.options.show_bind_key('right')", "width": 320, "pos": [30, 152], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " FORWARD: ",     "cmd": "game.options.show_bind_key('forward')", "width": 320, "pos": [30, 184], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " BACK: ",        "cmd": "game.options.show_bind_key('back')", "width": 320, "pos": [30, 216], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " ACTION 1: ",    "cmd": "game.options.show_bind_key('action1')", "width": 320, "pos": [30, 248], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " ACTION 2 ",     "cmd": "game.options.show_bind_key('action2')", "width": 320, "pos": [30, 280], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " USE/OPEN: ",    "cmd":"game.options.show_bind_key('use')", "width": 320, "pos": [30, 312], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " MENU: ",      "cmd": "game.options.show_bind_key('menu')", "width": 320, "pos": [30, 344], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " ZOOM IN: ",     "cmd": "game.options.show_bind_key('zoom_in')", "width": 320, "pos": [30, 376], "parent": "controls_canvas", "align":"left"},
+                        {"txt": " ZOOM OUT: ",    "cmd": "game.options.show_bind_key('zoom_out')", "width": 320, "pos": [30, 408], "parent": "controls_canvas", "align":"left"}
+                    ],
+         "text":[
+                {"txt":"controls options", "pos":[0,23]},
+                {"txt":"MOUSE SPEED:", "pos":[0,-4],"big_font":0, "parent": "controls_canvas"},
+                {"txt":"CAMERA ZOOM SPEED:", "pos":[0,40],"big_font":0, "parent": "controls_canvas"},
+                {"txt":"KEY BINDINGS:", "pos":[0,88],"big_font":0, "parent": "controls_canvas"}
+                ],
+        "slider":[  {"value":0.5,"cmd":"game.cam.set_rotation_speed(value)", "width":288, "pos":[48,16],"parent": "controls_canvas", "name":"camera-speed"},
+                    {"value":0.5,"cmd":"game.cam.set_zoom_speed(value)", "width":288, "pos":[48,60], "parent": "controls_canvas",  "name":"zoom-speed"}
+                ]
+        },
+        {"name":"video_quality",
+         "size":[512, 256],
+         "pos":[-256,-32],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                        {"txt":"PEACH", "name":"button_preset_full", "cmd":"game.options.set_preset('full')",   "width":256, "pos":[128,96]},
+                        {"txt":"VANILLA", "name":"button_preset_medium", "cmd":"game.options.set_preset('medium')", "width":256, "pos":[128,128]},
+                        {"txt":"POTATO", "name":"button_preset_minimal", "cmd":"game.options.set_preset('minimal')","width":256, "pos":[128,160]},
+                        {"txt":"BACK", "cmd":"game.gui.show_hide('video', 'video_quality')","width":256, "pos":[128,208]}
+                    ],
+         "text":[{"txt":"video quality", "pos":[0,23]}]
+        },
+
+        {"name":"resolution",
+         "size":[384, 512],
+         "pos":[-192,-32],
+         "parent":"top",
+         "header":64,
+         "scroll":1024,
+         "button":  [
+                        {"txt": "BACK", "cmd": "game.gui.show_hide('video', 'resolution')", "width": 288, "pos": [48, 78]},
+                        {"txt": "1920x1200 WINDOW", "cmd": "game.options.set_win_size(1920, 1200)", "width": 288, "pos": [48, 0], "parent": "resolution_canvas"},
+                        {"txt": "1600x900 WINDOW", "cmd": "game.options.set_win_size(1600, 900)", "width": 288, "pos": [48, 32], "parent": "resolution_canvas"},
+                        {"txt": "2560x2048 WINDOW", "cmd": "game.options.set_win_size(2560, 2048)", "width": 288, "pos": [48, 64], "parent": "resolution_canvas"},
+                        {"txt": "1800x1440 WINDOW", "cmd": "game.options.set_win_size(1800, 1440)", "width": 288, "pos": [48, 96], "parent": "resolution_canvas"},
+                        {"txt": "1280x768 WINDOW", "cmd": "game.options.set_win_size(1280, 768)", "width": 288, "pos": [48, 128], "parent": "resolution_canvas"},
+                        {"txt": "1360x768 WINDOW", "cmd": "game.options.set_win_size(1360, 768)", "width": 288, "pos": [48, 160], "parent": "resolution_canvas"},
+                        {"txt": "1680x1050 WINDOW", "cmd": "game.options.set_win_size(1680, 1050)", "width": 288, "pos": [48, 192], "parent": "resolution_canvas"},
+                        {"txt": "1920x1080 WINDOW", "cmd": "game.options.set_win_size(1920, 1080)", "width": 288, "pos": [48, 224], "parent": "resolution_canvas"},
+                        {"txt": "1440x900 WINDOW", "cmd": "game.options.set_win_size(1440, 900)", "width": 288, "pos": [48, 256], "parent": "resolution_canvas"},
+                        {"txt": "1024x600 WINDOW", "cmd": "game.options.set_win_size(1024, 600)", "width": 288, "pos": [48, 288], "parent": "resolution_canvas"},
+                        {"txt": "1366x768 WINDOW", "cmd": "game.options.set_win_size(1366, 768)", "width": 288, "pos": [48, 320], "parent": "resolution_canvas"},
+                        {"txt": "1440x1080 WINDOW", "cmd": "game.options.set_win_size(1440, 1080)", "width": 288, "pos": [48, 352], "parent": "resolution_canvas"},
+                        {"txt": "1024x768 WINDOW", "cmd": "game.options.set_win_size(1024, 768)", "width": 288, "pos": [48, 384], "parent": "resolution_canvas"},
+                        {"txt": "1280x960 WINDOW", "cmd": "game.options.set_win_size(1280, 960)", "width": 288, "pos": [48, 416], "parent": "resolution_canvas"},
+                        {"txt": "1600x1280 WINDOW", "cmd": "game.options.set_win_size(1600, 1280)", "width": 288, "pos": [48, 448], "parent": "resolution_canvas"},
+                        {"txt": "1280x800 WINDOW", "cmd": "game.options.set_win_size(1280, 800)", "width": 288, "pos": [48, 480], "parent": "resolution_canvas"},
+                        {"txt": "2560x1600 WINDOW", "cmd": "game.options.set_win_size(2560, 1600)", "width": 288, "pos": [48, 512], "parent": "resolution_canvas"},
+                        {"txt": "1600x1200 WINDOW", "cmd": "game.options.set_win_size(1600, 1200)", "width": 288, "pos": [48, 544], "parent": "resolution_canvas"},
+                        {"txt": "1280x720 WINDOW", "cmd": "game.options.set_win_size(1280, 720)", "width": 288, "pos": [48, 576], "parent": "resolution_canvas"},
+                        {"txt": "1280x1024 WINDOW", "cmd": "game.options.set_win_size(1280, 1024)", "width": 288, "pos": [48, 608], "parent": "resolution_canvas"},
+                        {"txt": "1920x1200 FULLSCREEN", "cmd": "game.options.set_win_size(1920, 1200, 1)", "width": 288, "pos": [48, 640], "parent": "resolution_canvas"},
+                        {"txt": "1600x900 FULLSCREEN", "cmd": "game.options.set_win_size(1600, 900, 1)", "width": 288, "pos": [48, 672], "parent": "resolution_canvas"},
+                        {"txt": "2560x2048 FULLSCREEN", "cmd": "game.options.set_win_size(2560, 2048, 1)", "width": 288, "pos": [48, 704], "parent": "resolution_canvas"},
+                        {"txt": "1800x1440 FULLSCREEN", "cmd": "game.options.set_win_size(1800, 1440, 1)", "width": 288, "pos": [48, 736], "parent": "resolution_canvas"},
+                        {"txt": "1280x768 FULLSCREEN", "cmd": "game.options.set_win_size(1280, 768, 1)", "width": 288, "pos": [48, 768], "parent": "resolution_canvas"},
+                        {"txt": "1360x768 FULLSCREEN", "cmd": "game.options.set_win_size(1360, 768, 1)", "width": 288, "pos": [48, 800], "parent": "resolution_canvas"},
+                        {"txt": "1680x1050 FULLSCREEN", "cmd": "game.options.set_win_size(1680, 1050, 1)", "width": 288, "pos": [48, 832], "parent": "resolution_canvas"},
+                        {"txt": "1920x1080 FULLSCREEN", "cmd": "game.options.set_win_size(1920, 1080, 1)", "width": 288, "pos": [48, 864], "parent": "resolution_canvas"},
+                        {"txt": "1440x900 FULLSCREEN", "cmd": "game.options.set_win_size(1440, 900, 1)", "width": 288, "pos": [48, 896], "parent": "resolution_canvas"},
+                        {"txt": "1024x600 FULLSCREEN", "cmd": "game.options.set_win_size(1024, 600, 1)", "width": 288, "pos": [48, 928], "parent": "resolution_canvas"},
+                        {"txt": "1366x768 FULLSCREEN", "cmd": "game.options.set_win_size(1366, 768, 1)", "width": 288, "pos": [48, 960], "parent": "resolution_canvas"},
+                        {"txt": "1440x1080 FULLSCREEN", "cmd": "game.options.set_win_size(1440, 1080, 1)", "width": 288, "pos": [48, 992], "parent": "resolution_canvas"},
+                        {"txt": "1024x768 FULLSCREEN", "cmd": "game.options.set_win_size(1024, 768, 1)", "width": 288, "pos": [48, 1024], "parent": "resolution_canvas"},
+                        {"txt": "1280x960 FULLSCREEN", "cmd": "game.options.set_win_size(1280, 960, 1)", "width": 288, "pos": [48, 1056], "parent": "resolution_canvas"},
+                        {"txt": "1600x1280 FULLSCREEN", "cmd": "game.options.set_win_size(1600, 1280, 1)", "width": 288, "pos": [48, 1088], "parent": "resolution_canvas"},
+                        {"txt": "1280x800 FULLSCREEN", "cmd": "game.options.set_win_size(1280, 800, 1)", "width": 288, "pos": [48, 1120], "parent": "resolution_canvas"},
+                        {"txt": "2560x1600 FULLSCREEN", "cmd": "game.options.set_win_size(2560, 1600, 1)", "width": 288, "pos": [48, 1152], "parent": "resolution_canvas"},
+                        {"txt": "1600x1200 FULLSCREEN", "cmd": "game.options.set_win_size(1600, 1200, 1)", "width": 288, "pos": [48, 1184], "parent": "resolution_canvas"},
+                        {"txt": "1280x720 FULLSCREEN", "cmd": "game.options.set_win_size(1280, 720, 1)", "width": 288, "pos": [48, 1216], "parent": "resolution_canvas"},
+                        {"txt": "1280x1024 FULLSCREEN", "cmd": "game.options.set_win_size(1280, 1024, 1)", "width": 288, "pos": [48, 1248], "parent": "resolution_canvas"}
+                    ],
+         "text":[ {"txt":"resolution:", "pos":[0,23]}]
+        },
+
+        {"name":"advanced_video",
+         "size":[384, 512],
+         "pos":[-192,-32],
+         "parent":"top",
+         "header":64,
+         "scroll":256,
+         "button":  [
+                        {"txt":"BACK", "cmd":"game.gui.show_hide('video', 'advanced_video')","width":288, "pos":[48,78]},
+                        {"txt": "AMBIENT OCCLUSION","cmd":"game.options.set_ao()", "width": 288, "pos": [48, 0], "parent": "advanced_video_canvas", "name":"ao_button"},
+                        {"txt": "DEPTH OF FIELD/FOG","cmd":"game.options.set_dof_fog()", "width": 288, "pos": [48, 32], "parent": "advanced_video_canvas", "name":"dof_button"},
+                        {"txt": "BLOOM/GLOW","cmd":"game.options.set_bloom()", "width": 288, "pos": [48, 64], "parent": "advanced_video_canvas", "name":"bloom_button"},
+                        {"txt": "LENS DISTORT","cmd":"game.options.set_chroma()", "width": 288, "pos": [48, 96], "parent": "advanced_video_canvas", "name":"chroma_button"},
+                        {"txt": "REFLECTIONS","cmd":"game.options.set_ssr()", "width": 288, "pos": [48, 128], "parent": "advanced_video_canvas", "name":"ssr_button"},
+                        {"txt": "COLOR TUNING","cmd":"game.options.set_lut()", "width": 288, "pos": [48, 160], "parent": "advanced_video_canvas", "name":"lut_button"},
+                        {"txt": "1024x1024 SHADOWS","cmd":"game.options.set_shadows(1024)", "width": 288, "pos": [48, 224], "parent": "advanced_video_canvas", "name":"hi_shadow_button"},
+                        {"txt": "512x512 SHADOWS","cmd":"game.options.set_shadows(512)", "width": 288, "pos": [48, 256], "parent": "advanced_video_canvas", "name":"med_shadow_button"},
+                        {"txt": "256x256 SHADOWS","cmd":"game.options.set_shadows(256)", "width": 288, "pos": [48, 288], "parent": "advanced_video_canvas", "name":"lo_shadow_button"},
+                        {"txt": "NO SHADOWS","cmd":"game.options.set_shadows(0)", "width": 288, "pos": [48, 320], "parent": "advanced_video_canvas", "name":"no_shadow_button"}                        
+                    ],
+         "text":[
+                    {"txt":"advanced video", "pos":[0,23]}
+                ]
+        },
+        {"name":"keybind",
+         "size":[320, 256],
+         "pos":[-160,0],
+         "parent":"top",
+         "header":0,
+         "scroll":0,
+         "button":  [
+                    {"txt":"SAVE KEY", "cmd":"game.options.bind_last_key()", "width":288, "pos":[16,158]},
+                    {"txt":"BACK", "cmd":"game.options.cancel_bind()","width":256, "pos":[32,190]}
+                    ],
+         "text":[
+                    {"txt":"Press a mouse button, key or key combination (with alt, ctr or shift) to change the key for the selected action\nTHE CURRENT KEY IS:", "pos":[0,20], "big_font":0, "wordwrap":20},
+                    {"txt":"{some_key???}", "pos":[-16,112], "big_font":1, "name":"txt_bind_input", "wordwrap":12}
+                ]
+        }
+    ],
+"button":{},
+"icon": {},
+"slider":{},
+"input":{},
+"bar":  {
+        "steam_bar":{"width":256, "color":[0,0.4,0.1,0.6], "pos":[260,0], "parent":"top_left"}
+        }
+}

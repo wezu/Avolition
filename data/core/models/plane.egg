@@ -1,0 +1,47 @@
+<CoordinateSystem> { Z-Up }
+
+<Texture> Tex1 {
+  "tex/grid.png"
+  <Scalar> format { rgba }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> minfilter { linear_mipmap_linear }
+  <Scalar> magfilter { linear }
+  <Scalar> envtype { modulate }
+}
+<Group> "Scene Root" {
+  <Group> Plane001 {
+    <VertexPool> Plane001.verts {
+      <Vertex> 0 {
+        -300 300 0
+        <UV> { 0.00199914 3.998 }
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 1 {
+        -300 -300 0
+        <UV> { 0.00199819 0.00199914 }
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 2 {
+        300 300 0
+        <UV> { 3.998 3.998 }
+        <Normal> { 0 0 1 }
+      }
+      <Vertex> 3 {
+        300 -300 0
+        <UV> { 3.998 0.00199819 }
+        <Normal> { 0 0 1 }
+      }
+    }
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { Tex1 }
+      <VertexRef> { 0 1 2 <Ref> { Plane001.verts } }
+    }
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { Tex1 }
+      <VertexRef> { 3 2 1 <Ref> { Plane001.verts } }
+    }
+  }
+}
